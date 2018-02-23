@@ -1,0 +1,128 @@
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc" 
+	controllerName="QALogs.controller.QAList" 
+	xmlns:f="sap.f" 
+	xmlns:variants="sap.ui.comp.variants" 
+	xmlns="sap.m" 
+	xmlns:filterbar="sap.ui.comp.filterbar">
+    <f:DynamicPage headerExpanded="true" showFooter="false" class="sapUiSizeCompact">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <variants:VariantManagement/>
+                </f:heading>
+                <f:actions>
+                    <ToolbarSpacer/>
+                    <Button icon="sap-icon://action" type="Transparent"/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <f:content>
+                    <filterbar:FilterBar id="ListReportFilterBar" useToolbar="false" showGoOnFB="true" searchEnabled="true">
+                        <filterbar:filterItems>
+                            <filterbar:FilterItem label="{i18n>developer}" name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-Fiori_ListReport_StandardFilter-1---0">
+                                <filterbar:control>
+                                    <MultiInput/>
+                                </filterbar:control>
+                            </filterbar:FilterItem>
+                            <filterbar:FilterItem label="{i18n>qaDateFrom}" name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-sap_ui_comp_filterbar_FilterItem-1519373745953---0">
+                                <filterbar:control>
+                                    <DatePicker enabled="true" visible="true" width="auto" displayFormat="{i18n>dateFormat}"/>
+                                </filterbar:control>
+                            </filterbar:FilterItem>
+                            <filterbar:FilterItem label="{i18n>qaDateTo}" name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-sap_ui_comp_filterbar_FilterItem-1519373784371---0">
+                                <filterbar:control>
+                                    <DatePicker enabled="true" visible="true" width="auto" displayFormat="{i18n>dateFormat}"/>
+                                </filterbar:control>
+                            </filterbar:FilterItem>
+                        </filterbar:filterItems>
+                    </filterbar:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <VBox fitContainer="true">
+                <items>
+                    <Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="SingleSelectLeft" updateFinished="_onFioriListReportTableUpdateFinished">
+                        <headerToolbar>
+                            <OverflowToolbar design="Transparent">
+                                <content>
+                                    <Title textAlign="Begin" text="{i18n>logs}"/>
+                                    <Title text="(1)"/>
+                                    <Button icon="sap-icon://vertical-grip"/>
+                                    <Title text="{i18n>standard}" textAlign="Begin"/>
+                                    <Button icon="sap-icon://arrow-down"/>
+                                    <ToolbarSpacer/>
+                                    <Button text="{i18n>delete}" iconFirst="false" type="Transparent">
+                                        <layoutData>
+                                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                        </layoutData>
+                                    </Button>
+                                    <Button text="" icon="sap-icon://add" iconFirst="true" type="Transparent">
+                                        <layoutData>
+                                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                        </layoutData>
+                                    </Button>
+                                    <Button icon="sap-icon://action-settings" type="Transparent">
+                                        <layoutData>
+                                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                        </layoutData>
+                                    </Button>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="auto" minScreenWidth="Phone">
+                                <header>
+                                    <Text text="{i18n>developer}" width="auto"/>
+                                </header>
+                            </Column>
+                            <Column width="auto" minScreenWidth="Tablet" demandPopin="true">
+                                <header>
+                                    <Text text="{i18n>qaDate}" width="auto"/>
+                                </header>
+                            </Column>
+                            <Column width="auto" minScreenWidth="Tablet" demandPopin="true">
+                                <header>
+                                    <Text text="{i18n>task}" width="auto"/>
+                                </header>
+                            </Column>
+                            <Column width="auto" minScreenWidth="Tablet" demandPopin="true">
+                                <header>
+                                    <Text text="{i18n>performance}" width="auto"/>
+                                </header>
+                            </Column>
+                            <Column width="auto" minScreenWidth="Phone">
+                                <header>
+                                    <Text text="{i18n>qa}" width="auto"/>
+                                </header>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem type="Active">
+                                <cells>
+                                    <ObjectIdentifier title="Boldface Value" text="Column 1 value"/>
+                                    <ObjectStatus text="Column 2 value" width="auto"/>
+                                    <ObjectStatus text="Column 3 value" width="auto"/>
+                                    <ObjectStatus text="Good" width="auto"/>
+                                    <ObjectStatus text="Text" width="auto"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </items>
+            </VBox>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar design="auto">
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>
