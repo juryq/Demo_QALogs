@@ -1,0 +1,485 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://DLWR-S4H-P2.DCSC.BE:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZCSP_QA_LOGS_SRV_01" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="ZC_CSP_QA_LOGSType" sap:label="Consume CDS View for CS&amp;P QA Logs" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="developer"/>
+                    <PropertyRef Name="qa_by"/>
+                    <PropertyRef Name="qa_date"/>
+                    <PropertyRef Name="qa_time"/>
+                    <PropertyRef Name="qa_group"/>
+                </Key>
+                <Property Name="developer" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Developer" sap:value-list="standard"/>
+                <Property Name="functional_domain" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Functional Domain" sap:value-list="fixed-values"/>
+                <Property Name="qa_workload" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="QA Workloa" sap:quickinfo="QA Workload"/>
+                <Property Name="on_time" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="On time" sap:value-list="fixed-values"/>
+                <Property Name="meet_all_functional_requiremen" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Meet all functional requirements" sap:value-list="fixed-values"/>
+                <Property Name="programming_issue" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Programming issue" sap:value-list="fixed-values"/>
+                <Property Name="issue_details" Type="Edm.String" MaxLength="255" sap:display-format="UpperCase" sap:label="Issue Details"/>
+                <Property Name="documentation" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Documentation" sap:value-list="fixed-values"/>
+                <Property Name="efficiency" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Efficiency" sap:value-list="fixed-values"/>
+                <Property Name="understanding_of_req" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Understanding of Req" sap:value-list="fixed-values"/>
+                <Property Name="lack_of_skills" Type="Edm.String" MaxLength="255" sap:display-format="UpperCase" sap:label="Lack of Skills"/>
+                <Property Name="qa_by" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="QA By" sap:value-list="standard"/>
+                <Property Name="response_time" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Response time" sap:value-list="fixed-values"/>
+                <Property Name="semantic" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="Semantic" sap:value-list="fixed-values"/>
+                <Property Name="suggestions" Type="Edm.String" MaxLength="255" sap:display-format="UpperCase" sap:label="Suggestions"/>
+                <Property Name="performance" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Performance" sap:value-list="fixed-values"/>
+                <Property Name="feedback" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Feedback" sap:value-list="fixed-values"/>
+                <Property Name="qa_date" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="QA Date"/>
+                <Property Name="qa_time" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:label="QA Time"/>
+                <Property Name="qa_group" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="QA Group" sap:value-list="standard"/>
+                <Property Name="customer" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Customer Name"/>
+                <Property Name="task_no" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Task No." sap:quickinfo="Task number"/>
+                <Property Name="start_date" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Start Date"/>
+                <Property Name="requirement_type" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Requirement Type" sap:value-list="fixed-values"/>
+            </EntityType>
+            <EntityType Name="VL_CH_ZCSP_QA_GROUP" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DEVELOPER"/>
+                    <PropertyRef Name="QA_BY"/>
+                    <PropertyRef Name="QA_GROUP"/>
+                </Key>
+                <Property Name="DEVELOPER" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Developer" sap:sortable="false"/>
+                <Property Name="QA_BY" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="QA By" sap:sortable="false"/>
+                <Property Name="QA_GROUP" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="QA Group" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZFUNCTIONAL" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZONTIME" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZMEETFUNCTIONAL" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZISSUE" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="20" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZDOCUMENTATION" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZEFFICIENCY" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZUNDERSTANDING" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="15" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZTIME" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="20" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZSEMANTIC" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="13" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZPERFORMANCE" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="15" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZFEEDBACK" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="15" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="VL_FV_ZREQUIREMENT" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="20" sap:text="Text" sap:label="Value"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityContainer Name="ZCSP_QA_LOGS_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_CSP_QA_LOGS" EntityType="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="VL_CH_ZCSP_QA_GROUP" EntityType="ZCSP_QA_LOGS_SRV_01.VL_CH_ZCSP_QA_GROUP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="false" sap:semantics="aggregate"/>
+                <EntitySet Name="VL_FV_ZFUNCTIONAL" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZFUNCTIONAL" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZONTIME" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZONTIME" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZMEETFUNCTIONAL" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZMEETFUNCTIONAL" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZISSUE" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZISSUE" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZDOCUMENTATION" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZDOCUMENTATION" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZEFFICIENCY" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZEFFICIENCY" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZUNDERSTANDING" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZUNDERSTANDING" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZTIME" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZTIME" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZSEMANTIC" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZSEMANTIC" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZPERFORMANCE" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZPERFORMANCE" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZFEEDBACK" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZFEEDBACK" sap:content-version="1" sap:semantics="fixed-values"/>
+                <EntitySet Name="VL_FV_ZREQUIREMENT" EntityType="ZCSP_QA_LOGS_SRV_01.VL_FV_ZREQUIREMENT" sap:content-version="1" sap:semantics="fixed-values"/>
+            </EntityContainer>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>qa_group</PropertyPath>
+                        <PropertyPath>qa_time</PropertyPath>
+                        <PropertyPath>qa_date</PropertyPath>
+                        <PropertyPath>qa_by</PropertyPath>
+                        <PropertyPath>developer</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/developer">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="VL_CH_ZCSP_QA_GROUP"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="developer"/>
+                                    <PropertyValue Property="ValueListProperty" String="DEVELOPER"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="qa_by"/>
+                                    <PropertyValue Property="ValueListProperty" String="QA_BY"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="qa_group"/>
+                                    <PropertyValue Property="ValueListProperty" String="QA_GROUP"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/functional_domain">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Functional Domain"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZFUNCTIONAL"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="functional_domain"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/on_time">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="On time"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZONTIME"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="on_time"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/meet_all_functional_requiremen">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Meet all functional requirements"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZMEETFUNCTIONAL"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="meet_all_functional_requiremen"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/programming_issue">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Programming issue"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZISSUE"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="programming_issue"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/documentation">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Documentation"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZDOCUMENTATION"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="documentation"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/efficiency">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Efficiency"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZEFFICIENCY"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="efficiency"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/understanding_of_req">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Understanding of Req"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZUNDERSTANDING"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="understanding_of_req"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/qa_by">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="VL_CH_ZCSP_QA_GROUP"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="developer"/>
+                                    <PropertyValue Property="ValueListProperty" String="DEVELOPER"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="qa_by"/>
+                                    <PropertyValue Property="ValueListProperty" String="QA_BY"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="qa_group"/>
+                                    <PropertyValue Property="ValueListProperty" String="QA_GROUP"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/response_time">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Response time"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZTIME"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="response_time"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/semantic">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Semantic"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZSEMANTIC"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="semantic"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/performance">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Performance"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZPERFORMANCE"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="performance"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/feedback">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Feedback"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZFEEDBACK"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="feedback"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/qa_group">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="VL_CH_ZCSP_QA_GROUP"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="developer"/>
+                                    <PropertyValue Property="ValueListProperty" String="DEVELOPER"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="qa_by"/>
+                                    <PropertyValue Property="ValueListProperty" String="QA_BY"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="qa_group"/>
+                                    <PropertyValue Property="ValueListProperty" String="QA_GROUP"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZCSP_QA_LOGS_SRV_01.ZC_CSP_QA_LOGSType/requirement_type">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Requirement Type"/>
+                        <PropertyValue Property="CollectionPath" String="VL_FV_ZREQUIREMENT"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="requirement_type"/>
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://DLWR-S4H-P2.DCSC.BE:443/sap/opu/odata/sap/ZCSP_QA_LOGS_SRV_01/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://DLWR-S4H-P2.DCSC.BE:443/sap/opu/odata/sap/ZCSP_QA_LOGS_SRV_01/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

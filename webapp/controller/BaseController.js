@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Controller, History) {
 	"use strict";
 
-	return Controller.extend("QALogs.controller.BaseController", {
+	return Controller.extend("qalogs.controller.BaseController", {
 
 		getRouter : function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);

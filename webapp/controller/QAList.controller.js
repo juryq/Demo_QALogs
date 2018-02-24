@@ -3,8 +3,8 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("QALogs.controller.QAList", {
-
+	return Controller.extend("qalogs.controller.QAList", {
+	
 	});
 
 });

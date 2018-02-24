@@ -7,27 +7,41 @@
 
 		<title>QALogs</title>
 
-		<script id="sap-ui-bootstrap"
-			src="../../resources/sap-ui-core.js"
-			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_bluecrystal"
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-preload="async"
-			data-sap-ui-resourceroots='{"QALogs": "./"}'>
+		<script
+				id="sap-ui-bootstrap"
+				src="../../../../../../../../../resources/sap-ui-core.js"
+				data-sap-ui-theme="sap_belize"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-bindingSyntax="complex"
+				data-sap-ui-compatVersion="edge"
+				data-sap-ui-preload="async"
+				data-sap-ui-resourceroots='{
+					"qalogs": "./"
+				}'>
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
-		<script>
-			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "QALogs"
-					})
-				}).placeAt("content");
+	<script>
+
+			sap.ui.getCore().attachInit(function () {
+				sap.ui.require([
+					"sap/m/Shell",
+					"sap/ui/core/ComponentContainer"
+				], function (Shell, ComponentContainer) {
+					new Shell({
+						app : new ComponentContainer({
+							name : "qalogs",
+							settings : {
+								id : "qalogs"
+							}
+						})
+					}).placeAt("content");
+				});
 			});
+
 		</script>
+
 	</head>
 
 	<body class="sapUiBody" id="content">

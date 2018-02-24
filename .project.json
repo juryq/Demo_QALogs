@@ -12,7 +12,7 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Wed, 13 Jan 2016 12:57:19 GMT"
+      "dateTimeStamp": "Sat, 24 Feb 2018 01:24:03 GMT"
     },
     {
       "templateId": "wysiwygtemplate.quickStart",
@@ -30,11 +30,14 @@
   "dataBinding": {
     "/webapp/view/App.view.xml": {
       "entitySet": "Entity1_Set"
+    },
+    "/webapp/view/Test.view.xml": {
+      "entitySet": "/ZC_CSP_QA_LOGS"
     }
   },
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/SAP/ZCSP_QA_LOGS_SRV_01",
-    "metadataFilePath": "localService/metadata.xml",
+    "mockUri": "/sap/opu/odata/sap/ZCSP_QA_LOGS_SRV_01/",
+    "metadataFilePath": "localService/ZCSP_QA_LOGS_SRV_01/metadata.xml",
     "loadJSONFiles": true,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""

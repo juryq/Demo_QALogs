@@ -1,8 +1,8 @@
 {
-	"_version": "1.1.0",
+	"_version": "1.3.0",
 	"sap.app": {
 		"_version": "1.1.0",
-		"id": "QALogs",
+		"id": "qalogs",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -16,15 +16,7 @@
 			"id": "servicecatalog.connectivityComponent",
 			"version": "0.0.0"
 		},
-		"dataSources": {
-			"QALogService": {
-				"uri": "/sap/opu/odata/SAP/ZCSP_QA_LOGS_SRV_01",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0"
-				}
-			}
-		}
+		"dataSources": {}
 	},
 	"sap.ui": {
 		"_version": "1.1.0",
@@ -42,12 +34,12 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal", "sap_belize"]
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"rootView": {
-			"viewName": "QALogs.view.App",
+			"viewName": "qalogs.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -62,22 +54,20 @@
 			"compact": true,
 			"cozy": true
 		},
-		"routing":{
-			"config":{
+		"routing": {
+			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "QALogs.view",
+				"viewPath": "qalogs.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"transition": "slide"
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "QAList",
-					"target": "qalist"
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "QAList",
+				"target": "qalist"
+			}],
 			"targets": {
 				"qalist": {
 					"viewName": "QAList",
@@ -90,19 +80,6 @@
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
 					"bundleName": "QALogs.i18n.i18n"
-				}
-			},
-		"": {
-				"dataSource": "QALogService",
-				"type": "sap.ui.model.odata.v2.ODataModel",
-				"settings": {
-					"loadMetadataAsync": false,
-					"json": true,
-					"bJSON": true,
-					"defaultBindingMode": "TwoWay",
-					"useBatch": true,
-					"refreshAfterChange": false,
-					"disableHeadRequestForToken": true
 				}
 			}
 		},

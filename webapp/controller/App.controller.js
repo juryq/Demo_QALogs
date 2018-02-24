@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("QALogs.controller.App", {
+	return Controller.extend("qalogs.controller.App", {
 
 	});
 

@@ -1,11 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/UIComponent",
-	"sap/ui/Device",
-	"QALogs/model/models"
-], function(UIComponent, Device, models) {
+	"sap/ui/core/UIComponent"
+], function(UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("QALogs.Component", {
+	return UIComponent.extend("qalogs.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -20,8 +18,8 @@ sap.ui.define([
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
+			// create the views based on the url/hash
+			this.getRouter().initialize();
 		}
 	});
 
