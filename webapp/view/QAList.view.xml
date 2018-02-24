@@ -1,10 +1,4 @@
-<mvc:View 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:f="sap.f" 
-	xmlns:variants="sap.ui.comp.variants" 
-	xmlns="sap.m" 
-	xmlns:filterbar="sap.ui.comp.filterbar" 
-	controllerName="qalogs.controller.QAList">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:variants="sap.ui.comp.variants" xmlns="sap.m" xmlns:filterbar="sap.ui.comp.filterbar" controllerName="qalogs.controller.QAList">
     <f:DynamicPage headerExpanded="true" showFooter="false" class="sapUiSizeCompact">
         <f:title>
             <f:DynamicPageTitle>
@@ -13,7 +7,6 @@
                 </f:heading>
                 <f:actions>
                     <ToolbarSpacer/>
-                    <Button icon="sap-icon://action" type="Transparent"/>
                 </f:actions>
             </f:DynamicPageTitle>
         </f:title>
@@ -43,9 +36,9 @@
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <VBox fitContainer="true" items="{/ZC_CSP_QA_LOGS}">
+            <VBox fitContainer="true" >
                 <items>
-                    <Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="SingleSelectLeft">
+                    <Table width="100%" items="{/ZC_CSP_QA_LOGS}" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="SingleSelectLeft">
                         <headerToolbar>
                             <OverflowToolbar design="Transparent">
                                 <content>
@@ -53,7 +46,6 @@
                                     <ToolbarSpacer/>
                                     <Button text="{i18n>delete}" iconFirst="false" type="Transparent"/>
                                     <Button text="" icon="sap-icon://add" iconFirst="true" type="Transparent"/>
-                                    <Button icon="sap-icon://action-settings" type="Transparent"/>
                                 </content>
                             </OverflowToolbar>
                         </headerToolbar>
@@ -87,7 +79,7 @@
                         <items>
                             <ColumnListItem type="Active">
                                 <cells>
-                                    <ObjectIdentifier title="{developer}" text="{developer}"/>
+                                    <ObjectIdentifier  text="{developer}"/>
                                     <ObjectStatus text="{qa_date}" id="textQADate" width="auto"/>
                                     <ObjectStatus text="{task_no}" width="auto"/>
                                     <ObjectStatus text="{performance}" width="auto"/>
