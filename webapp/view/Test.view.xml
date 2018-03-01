@@ -1,0 +1,14 @@
+<mvc:View 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	controllerName="qalogs.controller.Test">
+	<Page title="Test" class="sapUiResponsiveContentPadding">
+	<content>
+		<Button id="displayNotFoundBtn" text="Test" class="sapUiTinyMarginEnd"/>
+	    <!--<List noDataText="Drop list items here" id="__list0" items="{/ZC_CSP_QA_LOGS}">-->
+	    <!--    <items>-->
+	    <!--        <StandardListItem type="Navigation" title="{developer}" description="{issue_details}" id="__item0"/></items>-->
+	    <!--</List>-->
+	</content>
+	</Page>
+</mvc:View>
