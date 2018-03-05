@@ -1,5 +1,11 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:variants="sap.ui.comp.variants" xmlns="sap.m"
-	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" controllerName="qalogs.controller.QAList">
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:f="sap.f" 
+	xmlns:variants="sap.ui.comp.variants" 
+	xmlns="sap.m"
+	xmlns:filterbar="sap.ui.comp.filterbar" 
+	xmlns:core="sap.ui.core" 
+	controllerName="qalogs.controller.QAList">
 	<f:DynamicPage headerExpanded="true" showFooter="false" class="sapUiSizeCompact">
 		<f:title>
 			<f:DynamicPageTitle>
@@ -16,25 +22,25 @@
 				<f:content>
 					<filterbar:FilterBar id="ListReportFilterBar" useToolbar="false" showGoOnFB="true" searchEnabled="true" search="onSearch">
 						<filterbar:filterItems>
-							<filterbar:FilterItem label="{i18n>developer}"
+							<filterbar:FilterItem label="{i18n>label_developer}"
 								name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-Fiori_ListReport_StandardFilter-1---0">
 								<filterbar:control>
-									<ComboBox id="CBDeveloper" width="auto" items="{ path: '/ZC_CSP_QA_LOGS', sorter: { path: 'developer' } }">
+									<ComboBox id="CBDeveloper" width="auto" placeholder="{i18n>label_search}" items="{ path: '/ZC_CSP_QA_LOGS', sorter: { path: 'developer' } }">
 										<core:Item key="{developer}" text="{developer}"/>
 									</ComboBox>
 								</filterbar:control>
 							</filterbar:FilterItem>
-							<filterbar:FilterItem label="{i18n>qaDateFrom}"
+							<filterbar:FilterItem label="{i18n>label_qaDateFrom}"
 								name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-sap_ui_comp_filterbar_FilterItem-1519373745953---0">
 								<filterbar:control>
-									<DatePicker id="DPFrom" valueFormat="{i18n>dateFormate}" enabled="true" visible="true" width="auto" placeholder="Enter Date From"
+									<DatePicker id="DPFrom" displayFormat="{i18n>dateFormat}" enabled="true" visible="true" width="auto" placeholder="{i18n>dateFormat}"
 										change="handleDateChange" class="sapUiSmallMarginBottom"/>
 								</filterbar:control>
 							</filterbar:FilterItem>
-							<filterbar:FilterItem label="{i18n>qaDateTo}"
+							<filterbar:FilterItem label="{i18n>label_qaDateTo}"
 								name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-sap_ui_comp_filterbar_FilterItem-1519373784371---0">
 								<filterbar:control>
-									<DatePicker id="DPTo" enabled="true" visible="true" width="auto" valueFormat="{i18n>dateFormate}" change="handleDateChange"/>
+									<DatePicker id="DPTo" placeholder="{i18n>dateFormat}" value="{currentDate}" enabled="true" visible="true" width="auto" displayFormat="{i18n>dateFormat}" change="handleDateChange"/>
 								</filterbar:control>
 							</filterbar:FilterItem>
 						</filterbar:filterItems>
@@ -49,9 +55,9 @@
 						<headerToolbar>
 							<OverflowToolbar design="Transparent">
 								<content>
-									<Title textAlign="Begin" text="{i18n>qaCount}"/>
+									<Title textAlign="Begin" text="{i18n>label_qaCount}"/>
 									<ToolbarSpacer/>
-									<Button text="{i18n>delete}" iconFirst="false" type="Transparent"/>
+									<Button text="{i18n>label_delete}" iconFirst="false" type="Transparent"/>
 									<Button text="" icon="sap-icon://add" iconFirst="true" type="Transparent"/>
 								</content>
 							</OverflowToolbar>
@@ -59,32 +65,32 @@
 						<columns>
 							<Column width="auto" minScreenWidth="Phone">
 								<header>
-									<Text text="{i18n>developer}" width="auto"/>
+									<Text text="{i18n>label_developer}" width="auto"/>
 								</header>
 							</Column>
 							<Column width="auto" minScreenWidth="Tablet" demandPopin="true">
 								<header>
-									<Text text="{i18n>qaDate}" width="auto"/>
+									<Text text="{i18n>label_qaDate}" width="auto"/>
 								</header>
 							</Column>
 							<Column width="auto" minScreenWidth="Tablet" demandPopin="true">
 								<header>
-									<Text text="{i18n>task}" width="auto"/>
+									<Text text="{i18n>label_task}" width="auto"/>
 								</header>
 							</Column>
 							<Column width="auto" minScreenWidth="Tablet" demandPopin="true">
 								<header>
-									<Text text="{i18n>performance}" width="auto"/>
+									<Text text="{i18n>label_performance}" width="auto"/>
 								</header>
 							</Column>
 							<Column width="auto" minScreenWidth="Phone">
 								<header>
-									<Text text="{i18n>qa}" width="auto"/>
+									<Text text="{i18n>label_qa}" width="auto"/>
 								</header>
 							</Column>
 							<Column width="auto" minScreenWidth="Phone">
 								<header>
-									<Text text="{i18n>qadate}" width="auto"/>
+									<Text text="{i18n>label_qaDate}" width="auto"/>
 								</header>
 							</Column>
 						</columns>

@@ -10,7 +10,13 @@ sap.ui.define([
 
 		onInit: function() {
 			// create model
+			var data = {
+				dCurrentDate: new Date()
+			};
 
+			var oModel = new sap.ui.model.json.JSONModel();
+			oModel.setData(data);
+			sap.ui.getCore().setModel(oModel);
 		},
 
 		onSearch: function(oEvent) {
@@ -39,8 +45,8 @@ sap.ui.define([
 					})
 				);
 			}
-			
-			if (oNewFilterQADateForm !== null ) {
+
+			if (oNewFilterQADateForm !== null) {
 				aFilters.push(
 					new Filter({
 						path: 'qa_date',
@@ -49,8 +55,8 @@ sap.ui.define([
 					})
 				);
 			}
-			
-			if (oNewFilterQADateTo !== null ) {
+
+			if (oNewFilterQADateTo !== null) {
 				aFilters.push(
 					new Filter({
 						path: 'qa_date',
@@ -59,7 +65,6 @@ sap.ui.define([
 					})
 				);
 			}
-
 
 			if (aFilters.length > 0) {
 				var bindings = this.byId("TQAList").getBinding("items"),

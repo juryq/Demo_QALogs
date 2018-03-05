@@ -22,7 +22,7 @@
   ],
   "translation": {
     "translationDomain": "",
-    "supportedLanguages": "en,fr,de",
+    "supportedLanguages": "en",
     "defaultLanguage": "en",
     "defaultI18NPropertyFile": "i18n.properties",
     "resourceModelName": "i18n"
@@ -30,9 +30,6 @@
   "dataBinding": {
     "/webapp/view/App.view.xml": {
       "entitySet": "Entity1_Set"
-    },
-    "/webapp/view/Test.view.xml": {
-      "entitySet": "/ZC_CSP_QA_LOGS"
     },
     "/webapp/view/QAList.view.xml": {
       "entitySet": "/ZC_CSP_QA_LOGS"
