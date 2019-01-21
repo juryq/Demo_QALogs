@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/test/Desktop/Projects/INT_Reception/Code/Ionic_Azure_Test/Demo_QALogs/angular-cli-vsts/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/test/Desktop/Projects/INT_Reception/Code/Ionic_Azure_Test/Demo_QALogs/src/styles.css */"./src/styles.css");
 
 
 /***/ })
