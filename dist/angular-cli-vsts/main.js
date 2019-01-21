@@ -214,7 +214,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/test/Desktop/Projects/INT_Reception/Code/Ionic_Azure_Test/Demo_QALogs/angular-cli-vsts/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/test/Desktop/Projects/INT_Reception/Code/Ionic_Azure_Test/Demo_QALogs/src/main.ts */"./src/main.ts");
 
 
 /***/ })
